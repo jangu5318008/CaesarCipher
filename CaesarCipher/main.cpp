@@ -40,7 +40,7 @@ int main() {
 
             CaesarCipher cipher(n);
             encrypted = cipher.encrypt(text);
-            cout << "Encrypted: " << encrypted << endl;
+            //cout << "Cipher: " << encrypted << endl;
 
             ofstream outFile("cipherText.txt");
             outFile << encrypted;
