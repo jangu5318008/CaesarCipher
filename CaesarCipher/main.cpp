@@ -6,40 +6,55 @@ using namespace std;
 
 int main() {
 
+
+    
+
     int n;
-    string text;
-    string input;
+    string text, input, encrypted, decrypted, cipherText;
 
 
     while (true) {
-        cout << "Input each line of text, followed by enter. Input 'q' to quit";
+        cout << "Input each line of text, followed by enter. Input 'q' to quit" << '\n';
         getline(cin, input);
         if (input == "q") {
             break;
         }
         else {
-            text = input + '\n'; 
-
+            text += input + '\n'; 
         }
     }
             while (true) {
                 cout << "Input the key (integer): ";
-                cin >> n;
-                if (n < 0) {
+                if (cin >> n) {
+                    break;
+                }
                     cout << "Invalid key. Please enter a non-negative integer." << endl;
                     cin.clear();
                     //will only ignore up to 10k characters
                     cin.ignore(10000, '\n');
-
                 }
 
-            }
+
+          
+
 
             CaesarCipher cipher(n);
-            string encrypted = cipher.encrypt(input);
+            encrypted = cipher.encrypt(text);
             cout << "Encrypted: " << encrypted << endl;
-            string decrypted = cipher.decrypt(encrypted);
-            cout << "Decrypted: " << decrypted << endl;
+
+            ofstream outFile("cipherText.txt");
+            outFile << encrypted;
+            outFile.close();
+
+            ifstream inFile("cipherText.txt");
+            while (getline(inFile, input)) {
+                cipherText += input + '\n';
+            }
+            inFile.close();
+
+            cout << "Cipher: " << cipherText << endl;
+            decrypted = cipher.decrypt(cipherText);
+            cout << "Decipher: " << decrypted << endl;
 
 
 
@@ -47,3 +62,18 @@ int main() {
 
     return 0;
 }
+
+
+
+/* TO DO
+Open an ofstream
+
+    Output the encrypted text to the stream
+    Close the file
+
+Open an ifstream
+
+    Construct an empty string for the cipherText 
+    To preserve whitespace, use getline to read one line at a time
+    Concatenate each line followed by a '\n' onto cipherText
+*/

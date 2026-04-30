@@ -1,17 +1,7 @@
 #include "CaesarCipher.h"
-#include <iostream>
 #include <string>
 
 using namespace std;
-
-class CaesarCipher {
-public:
-    CaesarCipher(int _key);
-    string encrypt(string text);
-    string decrypt(string text);
-private:
-    int key;
-};
 
 
 CaesarCipher::CaesarCipher(int _key) {
@@ -49,7 +39,6 @@ string CaesarCipher::decrypt(string text) {
     }
     return text;
 }
-
 
 
 
