@@ -43,11 +43,11 @@ int main() {
             encrypted = cipher.encrypt(text);
             //cout << "Cipher: " << encrypted << endl;
 
-            ofstream outFile("cipherText.txt");
+            ofstream outFile("cipher.txt");
             outFile << encrypted;
             outFile.close();
 
-            ifstream inFile("cipherText.txt");
+            ifstream inFile("cipher.txt");
             while (getline(inFile, input)) {
                 cipherText += input + '\n';
             }
