@@ -53,9 +53,9 @@ int main() {
             }
             inFile.close();
 
-            cout << "Cipher: " << cipherText << endl;
+            cout << "Cipher: " << '\n' << cipherText << endl;
             decrypted = cipher.decrypt(cipherText);
-            cout << "Decipher: " << decrypted << endl;
+            cout << "Decipher: " << '\n' << decrypted << endl;
 
 
 
