@@ -24,8 +24,9 @@ int main() {
         }
     }
             while (true) {
-                cout << "Input the key (integer): ";
+                cout << "Input the key (integer): " << '\n';
                 if (cin >> n) {
+                    cout << '\n';
                     break;
                 }
                     cout << "Invalid key. Please enter a non-negative integer." << endl;
